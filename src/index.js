@@ -24,4 +24,11 @@ bot.command('aulas', async(ctx) => {
 })
 
 bot.telegram.setWebhook(`${URL}/bot${API_TOKEN}`);
-bot.startWebhook(`/bot${API_TOKEN}`, null, PORT)
+expressApp.use(bot.webhookCallback(`/bot${API_TOKEN}`));
+
+expressApp.get('/', (req, res) => {
+  res.send('Hello World!');
+});
+expressApp.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
