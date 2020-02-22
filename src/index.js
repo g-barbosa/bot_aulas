@@ -19,7 +19,7 @@ bot.command('sobre', (ctx) => ctx.reply('bot para pegar informações das aulas'
 bot.command('aulas', async(ctx) => {
     ctx.reply('Vou verificar para você')
     try{
-        await printClass()
+        await printClass
         ctx.reply('Estou enviando')
         //ctx.replyWithPhoto({ source: fs.createReadStream('../aulas.png') });
         ctx.replyWithPhoto({
