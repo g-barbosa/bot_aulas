@@ -15,6 +15,7 @@ const bot = new Telegraf(process.env.BOT_TOKEN)
 //expressApp.use(bot.webhookCallback(`/bot${API_TOKEN}`));
 
 bot.start((ctx) => ctx.reply('Hello world'))
+bot.command('sobre', (ctx) => ctx.reply('bot para pegar informações das aulas'))
 bot.command('aulas', async(ctx) => {
     ctx.reply('Vou verificar para você')
     try{
