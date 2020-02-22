@@ -8,7 +8,13 @@ const bot = new Telegraf(process.env.BOT_TOKEN)
 bot.start((ctx) => ctx.reply('Hello world'))
 bot.command('aulas', async(ctx) => {
     ctx.reply('Vou verificar para você')
-    await printClass
+    try{
+        await printClass
+    }
+    catch(e){
+        ctx.reply(e)
+    }
+        
     ctx.replyWithPhoto({ source: fs.createReadStream('./aulas.png') });
 })
 
