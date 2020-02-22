@@ -19,11 +19,11 @@ bot.command('sobre', (ctx) => ctx.reply('bot para pegar informações das aulas'
 bot.command('aulas', async(ctx) => {
     ctx.reply('Vou verificar para você')
     try{
-        await printClass
+        await printClass()
         ctx.reply('Estou enviando')
         //ctx.replyWithPhoto({ source: fs.createReadStream('../aulas.png') });
         ctx.replyWithPhoto({
-          url: 'https://res.cloudinary.com/dkafjz7rw/image/upload/v1582412211/newsshot/aulas.png',
+          url: 'https://res.cloudinary.com/dkafjz7rw/image/upload/aulas.png',
           filename: 'aulas.png'
         })
       }
