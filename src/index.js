@@ -26,12 +26,11 @@ bot.command('aulas', async(ctx) => {
     ctx.reply('Vou verificar para você')
     try{
         await printClass
+        ctx.replyWithPhoto({ source: fs.createReadStream('./aulas.png') });
     }
     catch(e){
         ctx.reply(e)
-    }
-        
-    ctx.replyWithPhoto({ source: fs.createReadStream('./aulas.png') });
+    }  
 })
 
 bot.launch({
