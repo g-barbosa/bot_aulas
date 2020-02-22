@@ -21,8 +21,12 @@ bot.command('aulas', async(ctx) => {
     try{
         await printClass
         ctx.reply('Estou enviando')
-        ctx.replyWithPhoto({ source: fs.createReadStream('../aulas.png') });
-    }
+        //ctx.replyWithPhoto({ source: fs.createReadStream('../aulas.png') });
+        ctx.replyWithPhoto({
+          url: 'https://res.cloudinary.com/dkafjz7rw/image/upload/v1582412211/newsshot/aulas.png',
+          filename: 'aulas.png'
+        })
+      }
     catch(e){
         ctx.reply(e)
     }  
