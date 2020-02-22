@@ -8,14 +8,7 @@ require('dotenv/config')
 const API_TOKEN = process.env.BOT_TOKEN || '';
 const PORT = process.env.PORT || 3000;
 const URL = process.env.URL || 'https://bot-aulas.herokuapp.com/';
-/*
-expressApp.get('/', (req, res) => {
-    res.send('Hello World!');
-  });
-  expressApp.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-  });
-*/
+
 const bot = new Telegraf(process.env.BOT_TOKEN)
 
 //bot.telegram.setWebhook(`${URL}/bot${API_TOKEN}`);
@@ -32,6 +25,14 @@ bot.command('aulas', async(ctx) => {
         ctx.reply(e)
     }  
 })
+
+
+expressApp.get('/', (req, res) => {
+  res.send('Hello World!');
+});
+expressApp.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
 
 bot.launch({
     webhook: {
