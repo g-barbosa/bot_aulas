@@ -1,0 +1,1 @@
+Altere o arquivo .env com suas credenciais
