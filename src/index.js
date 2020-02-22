@@ -23,8 +23,8 @@ bot.command('aulas', async(ctx) => {
     ctx.replyWithPhoto({ source: fs.createReadStream('./aulas.png') });
 })
 
-bot.telegram.setWebhook(`${URL}/bot${API_TOKEN}`);
-expressApp.use(bot.webhookCallback(`/bot${API_TOKEN}`));
+//bot.telegram.setWebhook(`${URL}/bot${API_TOKEN}`);
+//expressApp.use(bot.webhookCallback(`/bot${API_TOKEN}`));
 
 expressApp.get('/', (req, res) => {
   res.send('Hello World!');
@@ -32,3 +32,6 @@ expressApp.get('/', (req, res) => {
 expressApp.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
+
+bot.hears(/./, (ctx) => ctx.reply('Hello'))
+bot.startPolling()
