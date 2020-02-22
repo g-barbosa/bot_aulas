@@ -18,4 +18,4 @@ bot.command('aulas', async(ctx) => {
     ctx.replyWithPhoto({ source: fs.createReadStream('./aulas.png') });
 })
 
-bot.launch()
+bot.telegram.setWebhook('https://bot-aulas.herokuapp.com')
