@@ -34,4 +34,10 @@ bot.command('aulas', async(ctx) => {
     ctx.replyWithPhoto({ source: fs.createReadStream('./aulas.png') });
 })
 
-bot.startPolling()
+bot.launch({
+    webhook: {
+      domain: 'https://bot-aulas.herokuapp.com',
+      hookPath: '/RANDOM_ID',
+      port: process.env.PORT
+    }
+  });
