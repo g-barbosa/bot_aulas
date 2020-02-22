@@ -5,6 +5,13 @@ const express = require('express')
 const expressApp = express()
 require('dotenv/config')
 
+expressApp.get('/', (req, res) => {
+    res.send('Hello World!');
+  });
+  expressApp.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+  });
+
 const bot = new Telegraf(process.env.BOT_TOKEN)
 const API_TOKEN = process.env.BOT_TOKEN || '';
 const PORT = process.env.PORT || 3000;
@@ -26,12 +33,4 @@ bot.command('aulas', async(ctx) => {
 //bot.telegram.setWebhook(`${URL}/bot${API_TOKEN}`);
 //expressApp.use(bot.webhookCallback(`/bot${API_TOKEN}`));
 
-expressApp.get('/', (req, res) => {
-  res.send('Hello World!');
-});
-expressApp.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
-
-bot.hears(/./, (ctx) => ctx.reply('Hello'))
 bot.startPolling()
