@@ -27,14 +27,6 @@ bot.command('aulas', async(ctx) => {
     }  
 })
 
-
-expressApp.get('/', (req, res) => {
-  res.send('Hello World!');
-});
-expressApp.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
-
 bot.launch({
     webhook: {
       domain: 'https://bot-aulas.herokuapp.com',
