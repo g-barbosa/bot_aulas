@@ -8,7 +8,7 @@ bot.start((ctx) => ctx.reply('Hello world'))
 bot.command('sobre', (ctx) => ctx.reply('bot para pegar informações das aulas'))
 bot.command('aulas', async(ctx) => {
     ctx.reply('Vou verificar para você')
-    const aulas = await printClass
+    const aulas =  printClass
     ctx.reply(aulas[0].materia)
 })
 
