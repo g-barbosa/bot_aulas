@@ -1,5 +1,4 @@
 const puppeteer = require('puppeteer')
-const cloudinary = require('cloudinary')
 require('dotenv/config')
 
 const classPage = 'https://account.impacta.edu.br/aluno/quadro-horario.php?turmaid=MDE2TVRVNE1qTTVNekE1TWc9PU5qUXdNdz09&produto=MDE2TVRVNE1qTTVNekE1TWc9PU5UYz0='
@@ -36,4 +35,4 @@ const printClass = async() => {
     return aulas
 }
 
-module.exports = printClass
+module.exports = printClass()
