@@ -32,38 +32,23 @@ const printClass = async() => {
 ]);
     await page.keyboard.press('Escape')
     await page.goto(classPage, { waitUntil: 'networkidle0' })
-    
-    let shotResult = await page.screenshot({
-        fullPage: true
-    }).then((result) => {
-        console.log(`got some results.`);
-        return result;
-    }).catch(e => {
-        console.error(`Error in snapshotting news`, e);
-        return false;
-    });
-
+    const aulas = await page.evaluate(() => {
+      let infos = []
+      let aulas = document.getElementsByClassName('dia-semana-content')
+      let listaAulas = Object.values(aulas)
+      listaAulas.forEach(a => {
+          let dias = {
+              materia: a.children[1].nextSibling.data,
+              prof: a.children[4].firstChild.data,
+              sala1: a.children[6].nextSibling.data,
+              sala2: a.children[22].nextSibling.data
+          }
+          infos.push(dias)
+      })
+      return infos
+  })
     await browser.close()
-
-    if (shotResult){
-        return cloudinaryPromise(shotResult, cloudinary_options);
-      }else{
-        return null;
-      }
-
-    function cloudinaryPromise(shotResult, cloudinary_options){
-        return new Promise(function(res, rej){
-          cloudinary.v2.uploader.upload_stream(cloudinary_options,
-            function (error, cloudinary_result) {
-              if (error){
-                console.error('Upload to cloudinary failed: ', error);
-                rej(error);
-              }
-              res(cloudinary_result);
-            }
-          ).end(shotResult);
-        });
-      }
+    return aulas
 }
 
 module.exports = printClass()
