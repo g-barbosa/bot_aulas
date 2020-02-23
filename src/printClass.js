@@ -36,4 +36,4 @@ const printClass = async() => {
     return aulas
 }
 
-module.exports = printClass()
+module.exports = printClass
