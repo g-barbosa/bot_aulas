@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "cheerio": "^1.0.0-rc.3",
+    "chromium": "^2.1.1",
     "cloudinary": "^1.19.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
