@@ -1,6 +1,5 @@
 const Telegraf = require('telegraf')
-const {printClass} = require('./printClass')
-const express = require('express')
+const printClass = require('./printClass')
 require('dotenv/config')
 
 const bot = new Telegraf(process.env.BOT_TOKEN)
