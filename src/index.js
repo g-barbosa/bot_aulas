@@ -7,15 +7,14 @@ const bot = new Telegraf(process.env.BOT_TOKEN)
 bot.start((ctx) => ctx.reply('O QUE DESEJA SABER?'))
 bot.command('aulas', async(ctx) => {
     ctx.reply('Vou verificar para você')
-    const cont = 0
     const dia = ""
     const aulas =  await printClass
-    aulas.forEach(diaSemana => {
-      if (cont = 0) dia = 'Segunda:'
-      if (cont = 1) dia = 'Terça:'
-      if (cont = 2) dia = 'Quarta:'
-      if (cont = 3) dia = 'Quinta:'
-      if (cont = 4) dia = 'Sexta:'
+    aulas.forEach((diaSemana, cont) => {
+      if (cont.valueOf = 0) dia = 'Segunda:'
+      if (cont.valueOf = 1) dia = 'Terça:'
+      if (cont.valueOf = 2) dia = 'Quarta:'
+      if (cont.valueOf = 3) dia = 'Quinta:'
+      if (cont.valueOf = 4) dia = 'Sexta:'
 
       ctx.reply(`
       ${dia}\n
@@ -23,8 +22,6 @@ bot.command('aulas', async(ctx) => {
       Prof: ${diaSemana.prof}\n
       Sala1${diaSemana.sala1}\n
       Sala2${diaSemana.sala2}`)
-      
-      cont += 1
     })
 })
 
