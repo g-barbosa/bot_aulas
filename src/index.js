@@ -4,17 +4,17 @@ require('dotenv/config')
 
 const bot = new Telegraf(process.env.BOT_TOKEN)
 
-bot.start((ctx) => ctx.reply('O QUE DESEJA SABER?'))
+bot.start((ctx) => ctx.reply('O que deseja saber?'))
 bot.command('aulas', async(ctx) => {
     ctx.reply('Vou verificar para você')
     const dia = ""
     const aulas =  await printClass
     aulas.forEach((diaSemana, cont) => {
-      if (cont.valueOf = 0) dia = 'Segunda:'
-      if (cont.valueOf = 1) dia = 'Terça:'
-      if (cont.valueOf = 2) dia = 'Quarta:'
-      if (cont.valueOf = 3) dia = 'Quinta:'
-      if (cont.valueOf = 4) dia = 'Sexta:'
+      if (cont.valueOf == 0) dia = 'Segunda:'
+      if (cont.valueOf == 1) dia = 'Terça:'
+      if (cont.valueOf == 2) dia = 'Quarta:'
+      if (cont.valueOf == 3) dia = 'Quinta:'
+      if (cont.valueOf == 4) dia = 'Sexta:'
 
       ctx.reply(`
       ${dia}\n
