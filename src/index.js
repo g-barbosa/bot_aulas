@@ -23,6 +23,8 @@ bot.command('aulas', async(ctx) => {
       Prof: ${diaSemana.prof}\n
       Sala1${diaSemana.sala1}\n
       Sala2${diaSemana.sala2}`)
+      
+      cont += 1
     })
 })
 
