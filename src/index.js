@@ -4,8 +4,7 @@ require('dotenv/config')
 
 const bot = new Telegraf(process.env.BOT_TOKEN)
 
-bot.start((ctx) => ctx.reply('O que deseja saber?'))
-bot.command('aulas', async(ctx) => {
+bot.start(async(ctx) => {
     ctx.reply('Vou verificar para você')
     const aulas =  await printClass
     aulas.forEach((diaSemana, cont) => {
@@ -20,8 +19,7 @@ bot.command('aulas', async(ctx) => {
       ${dia}\n
       Matéria${diaSemana.materia}\n
       Prof : ${diaSemana.prof}\n
-      Sala1${diaSemana.sala1}\n
-      Sala2${diaSemana.sala2}`)
+      Sala${diaSemana.sala1 === 'Não cadastrado' ? '-' : diaSemana.sala1}`)
     })
 })
 
